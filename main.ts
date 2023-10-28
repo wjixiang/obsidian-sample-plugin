@@ -196,7 +196,7 @@ export class ExampleView extends ItemView { //此处为创建一个view
 			container.querySelector("#note-content").innerHTML = text
 		});
 		// console.log(select_t[0])
-		var answe = this.app.vault.read(select_t[0]).then(content => {
+		var answe = this.app.vault.read(timu).then(content => {
 			// 假设 markdown 是你的 Markdown 字符串
 			let markdown = content;
 			// 使用正则表达式匹配 ad-question 代码块
@@ -264,7 +264,7 @@ export class ExampleView extends ItemView { //此处为创建一个view
 			container.querySelector("#note-content").innerHTML = text
 		});
 		// console.log(select_t[0])
-		var answe = this.app.vault.read(select_t[0]).then(content => {
+		var answe = this.app.vault.read(timu).then(content => {
 			// 假设 markdown 是你的 Markdown 字符串
 			let markdown = content;
 			// 使用正则表达式匹配 ad-question 代码块
@@ -323,7 +323,7 @@ export class ExampleView extends ItemView { //此处为创建一个view
 			container.querySelector("#note-content").innerHTML = text
 		});
 		// console.log(select_t[0])
-		var answe = this.app.vault.read(select_t[0]).then(content => {
+		var answe = this.app.vault.read(timu).then(content => {
 			// 假设 markdown 是你的 Markdown 字符串
 			let markdown = content;
 			// 使用正则表达式匹配 ad-question 代码块
