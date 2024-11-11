@@ -1,6 +1,8 @@
 import esbuild from "esbuild";
 import process from "process";
-import builtins from "builtin-modules";
+import builtins from 'builtin-modules';
+import {copy} from 'esbuild-plugin-copy';
+
 
 const banner =
 `/*
@@ -15,8 +17,16 @@ const context = await esbuild.context({
 	banner: {
 		js: banner,
 	},
-	entryPoints: ["main.ts"],
+	entryPoints: ["./src/main.ts"],
 	bundle: true,
+    plugins: [
+        copy({
+            assets: [{
+                from: ["./dist/*"],
+                to: ["../test-vault/.obsidian/plugins/myplugin"]
+            }]
+        }),
+    ],
 	external: [
 		"obsidian",
 		"electron",
@@ -37,8 +47,7 @@ const context = await esbuild.context({
 	logLevel: "info",
 	sourcemap: prod ? false : "inline",
 	treeShaking: true,
-	outfile: "main.js",
-	minify: prod,
+	outfile:"./dist/main.js"
 });
 
 if (prod) {
